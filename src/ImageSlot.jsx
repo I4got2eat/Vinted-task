@@ -1,25 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+const ImageSlot = (image, key) => {
+  const [picturePath, setPicturePath] = useState();
 
-const ImageSlot = (image, key) =>{
+  useEffect(() => {
+    setPicturePath(
+      `https://farm${image.image.farm}.staticflickr.com/${image.image.server}/${image.image.id}_${image.image.secret}_b.jpg`
+    );
+  }, []);
 
-    console.log(image)
+  return (
+    <div
+    className='container'
+    style={{backgroundImage: `url(${picturePath})` }}
+    >
+      <button className='fav-btn'>Favorite</button>
+    </div>
+    
+    
+  );
+};
 
-
-    return(
-        
-        <div
-        style={{
-            background: "red",
-            width: "100px",
-            height: "100px"
-        }}
-        >
-            <p style={{color: 
-            "white"}}>{image.id}</p>
-      </div>
-        
-
-    )
-}
-
-export default ImageSlot
+export default ImageSlot;
