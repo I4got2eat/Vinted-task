@@ -1,0 +1,63 @@
+.img-slot {
+    width: 27%;
+    text-align: center;
+    color: black;
+    height: 400px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 40px;
+    transition: all 0.3s ease-in;
+    border: 1px solid white
+}
+
+
+
+.info:hover>.fav-btn {
+    filter: brightness(100%);
+
+}
+
+.fav-btn {
+    visibility: hidden;
+    margin-top: 60%;
+    background-color: transparent;
+    border-radius: 30px;
+    height: 40px;
+    width: 100px;
+    scale: 160%;
+    color: white;
+    border: 3px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+
+}
+
+
+.fav-btn:active {
+    scale: 140%;
+}
+
+
+.img-slot:hover {
+    filter: brightness(60%);
+
+    .fav-btn {
+        visibility: visible;
+    }
+}
+
+.row-view {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scroll-view {
+    background-color: grey;
+    width: 100w;
+    height: 100h;
+    overflow:visible;
+
+}

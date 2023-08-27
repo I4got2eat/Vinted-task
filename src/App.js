@@ -1,14 +1,10 @@
 import logo from "./logo.svg";
 // import "./App.css";
 import ScrollSection from "./ScrollSection";
-import "./style/Style.css";
+import "./style/Style.scss";
 function App() {
   return (
-    <>
-      <div style={{ backgroundColor: "grey" }}>
-        <ScrollSection />
-      </div>
-    </>
+     <ScrollSection />
   );
 }
 

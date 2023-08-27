@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-
+import { useEffect } from "react";
 import API_KEY from "./key";
 import ImageSlot from "./ImageSlot";
 
 const ScrollSection = () => {
+  const [page, setPage] = useState("1")
   const [endPoint, setEndPoint] = useState(
-    `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=10&page=1&format=json&nojsoncallback=1`
+    `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=12&page=${page}&format=json&nojsoncallback=1`
   );
   const [data, setData] = useState([]);
   const [enable, setEnable] = useState(false);
+
 
   const fetchImages = async () => {
     const response = await fetch(endPoint).then((res) => {
@@ -18,16 +20,21 @@ const ScrollSection = () => {
     setEnable(true);
   };
 
+  const handleScroll = async () =>{
+    
+    console.log("called : ")
+  }
+  
+  useEffect(() => {
+    fetchImages()
+  }, []);
+
   return (
-    <>
-      <button
-        onClick={() => {
-          fetchImages();
-        }}
+  <div className='scroll-view' onScrollCapture={()=>
+    console.log("called : ")}>
+      <div 
+      className='row-view'
       >
-        test
-      </button>
-      <div style={{display: "flex", flexWrap: "wrap"}}>
         {enable && (
           <>
             {data.photos.photo.map((photo) => (
@@ -36,7 +43,7 @@ const ScrollSection = () => {
           </>
         )}
       </div>
-    </>
+      </div>
   );
 };
 
