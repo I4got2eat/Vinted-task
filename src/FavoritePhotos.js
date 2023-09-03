@@ -1,7 +1,3 @@
+var favoritePhotos = [];
 
-export var favoritePhotos = [];
-
-
-export function setFavoritePhotos(photos){
-    this.favoritePhotos = photos;
-}
+export default favoritePhotos;

@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
-// import "./App.css";
-import ScrollSection from "./ScrollSection";
 import "./style/Style.scss";
+import Tabs from "./Tabs";
 function App() {
   return (
-     <ScrollSection />
+    <>
+      <Tabs />
+    </>
   );
 }
 

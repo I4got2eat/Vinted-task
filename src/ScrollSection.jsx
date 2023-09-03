@@ -1,49 +1,57 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import API_KEY from "./key";
+import React, { useState, useEffect, useRef } from "react";
+import { API_KEY, CATEGORY, PAGE_SIZE } from "./EndPointData";
 import ImageSlot from "./ImageSlot";
 
 const ScrollSection = () => {
-  const [page, setPage] = useState("1")
-  const [endPoint, setEndPoint] = useState(
-    `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=12&page=${page}&format=json&nojsoncallback=1`
-  );
-  const [data, setData] = useState([]);
+  const [page, setPage] = useState(3);
+  const [photos, setPhotos] = useState([]);
   const [enable, setEnable] = useState(false);
-
+  const scrollViewRef = useRef(null);
 
   const fetchImages = async () => {
-    const response = await fetch(endPoint).then((res) => {
-      return res.json();
-    });
-    setData(response);
-    setEnable(true);
+    try {
+      const response = await fetch(
+        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&per_page=${PAGE_SIZE}&page=${page}&format=json&nojsoncallback=1&safe_search=1&tags=${CATEGORY}`
+      );
+      const data = await response.json();
+
+      const customContainer = data.photos.photo.map((element) => ({
+        id: element.id,
+        server: element.server,
+        secret: element.secret,
+        title: element.title,
+      }));
+
+      setPhotos((prevPhotos) => [...prevPhotos, ...customContainer]);
+      setEnable(true);
+      setPage((prevPage) => prevPage + 1);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    }
   };
 
-  const handleScroll = async () =>{
-    
-    console.log("called : ")
-  }
-  
+  const handleScroll = (e) => {
+    const { scrollTop, clientHeight, scrollHeight } = e.target;
+    const scrollLimit = scrollHeight - clientHeight;
+
+    if (scrollTop >= scrollLimit * 0.8 && scrollTop < scrollLimit * 0.82) {
+      fetchImages();
+    }
+  };
+
   useEffect(() => {
-    fetchImages()
+    fetchImages();
   }, []);
 
   return (
-  <div className='scroll-view' onScrollCapture={()=>
-    console.log("called : ")}>
-      <div 
-      className='row-view'
-      >
-        {enable && (
-          <>
-            {data.photos.photo.map((photo) => (
-              <ImageSlot image={photo} key={photo.id} />
-            ))}
-          </>
-        )}
+    <div className="scroll-view" onScroll={handleScroll} ref={scrollViewRef}>
+      <div className="row-view">
+        {enable &&
+          photos.map((photo, index) => (
+            <ImageSlot image={photo} tab="home" key={index} />
+          ))}
       </div>
-      </div>
+    </div>
   );
 };
 

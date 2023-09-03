@@ -1,28 +1,177 @@
-.img-slot {
-    width: 27%;
-    text-align: center;
-    color: black;
-    height: 400px;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 40px;
-    transition: all 0.3s ease-in;
-    border: 1px solid white
-}
-
-
-
-.info:hover>.fav-btn {
-    filter: brightness(100%);
-
+body {
+  overflow: hidden;
 }
 
 .fav-btn {
+  margin-top: 15%;
+  background-color: transparent;
+  border-radius: 30px;
+  height: 40px;
+  width: 100px;
+  scale: 160%;
+  color: white;
+  border: 3px solid white;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 1px 1px 1px black;
+}
+
+.fav-btn:active {
+  scale: 157%;
+}
+
+.credits {
+  margin-top: 18px;
+  color: #087c84;
+  margin-left: 800px;
+}
+
+.row-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.scroll-view {
+  background-color: #e7e7e7;
+  overflow: auto;
+  max-height: 90vh;
+  min-height: 90vh;
+}
+
+.tabs-container {
+  background-color: #dedada;
+  width: 100vw;
+  height: 90px;
+  display: flex;
+}
+
+.tab-btn {
+  background-color: white;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 60px;
+  color: #087c84;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #087c84;
+  scale: 140%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-btn:active {
+  scale: 135%;
+  filter: brightness(70%);
+}
+
+.logo {
+  margin-top: 18px;
+  margin-left: 30px;
+  height: 60px;
+}
+
+.btns {
+  margin-top: 15px;
+  margin-left: 40px;
+}
+
+.fav-tab-scroll-view {
+  overflow: auto;
+  max-height: 100vh;
+  min-height: 100vh;
+  background-color: #e7e7e7;
+}
+
+.fav-tab-row-view {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.title {
+  color: #087c84;
+  margin-left: 500px;
+}
+
+.img-title {
+  color: white;
+  margin-top: 100px;
+  overflow: hidden;
+  max-height: 100px;
+}
+
+hr {
+  width: 250px;
+  height: 2px;
+  background-color: white;
+}
+.img-slot {
+  position: relative;
+  width: 31%;
+  text-align: center;
+  color: black;
+  height: 450px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+  transition: all 0.3s ease-in;
+  box-shadow: 4px 4px #bcbcbc;
+}
+
+.img-slot:hover {
+  filter: brightness(0.8);
+  box-shadow:
+    4px 4px #bcbcbc,
+    inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  .img-overlay {
+    visibility: visible;
+  }
+}
+
+.img-overlay {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.empty-fav-tab {
+  margin: auto;
+  margin-top: "100px";
+  color: #087c84;
+}
+
+@media screen and (max-width: 375px) {
+  .root {
+    width: 375px;
+  }
+
+  body {
+    overflow: visible;
+  }
+
+  .empty-fav-tab {
+    scale: 80%;
+    text-align: center;
+    margin-top: "100px";
+    color: #087c84;
+  }
+
+  .title {
+    color: #087c84;
+    margin-left: 0px;
     visibility: hidden;
-    margin-top: 60%;
+  }
+
+  .fav-btn {
+    margin-top: 15%;
     background-color: transparent;
     border-radius: 30px;
     height: 40px;
@@ -31,33 +180,44 @@
     color: white;
     border: 3px solid white;
     cursor: pointer;
-    transition: all 0.3s ease-in;
+    //   transition: all 0.3s ease-in;
+    text-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 1px black;
+  }
 
-}
+  .fav-btn:active {
+    scale: 157%;
+  }
 
+  .row-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    max-width: 375px;
+  }
 
-.fav-btn:active {
-    scale: 140%;
-}
-
-
-.img-slot:hover {
-    filter: brightness(60%);
-
-    .fav-btn {
-        visibility: visible;
-    }
-}
-
-.row-view {
+  .tabs-container {
+    width: 375px;
+    height: 150px;
     display: flex;
     flex-wrap: wrap;
-}
+    max-width: 375px;
+  }
 
-.scroll-view {
-    background-color: grey;
-    width: 100w;
-    height: 100h;
-    overflow:visible;
+  .logo {
+    height: 60px;
+    margin: auto;
+  }
 
+  .fav-tab-scroll-view {
+    overflow: auto;
+    max-height: 100vh;
+    min-height: 100vh;
+    background-color: #e7e7e7;
+  }
+
+  .img-slot {
+    width: 90%;
+  }
 }
