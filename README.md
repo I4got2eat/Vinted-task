@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+Project done for vinted engineering academy.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The application is focused on displaying and managing images, allowing users to favorite or unfavorite them.
 
-## Available Scripts
+Technologies Used:
 
-In the project directory, you can run:
+React: The application is primarily built using React, a JavaScript library for building user interfaces. React components are used to structure and manage the UI elements.
+Key Components:
 
-### `npm start`
+Tabs Component (Tabs.js): Responsible for rendering tabs for "Home" and "Favorites." It manages the active tab and conditionally renders content based on the selected tab.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ScrollSection Component (ScrollSection.js): Responsible for handling the scrolling and loading of images. It communicates with an external API (Flickr) to fetch images and dynamically loads more images as the user scrolls down the page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ImageSlot Component (ImageSlot.js): Responsible for rendering individual image slots. It handles image favoriting/unfavoriting, image metadata display on hover, and rendering the image itself.
 
-### `npm test`
+FavoritesTab Component (FavoritesTab.js): Responsible for displaying the user's favorite images. It uses data stored in local storage to render these images.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Implementation Details:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+State Management: React state hooks (useState) are used to manage component-level states, such as the active tab and image data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+API Integration: The application fetches image data from the Flickr API using the fetch function. It constructs API URLs with query parameters to customize the results.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Local Storage: The application uses the browser's local storage to store and retrieve data, such as the list of favorite images. It employs functions to add, retrieve, and remove data from local storage.
 
-### `npm run eject`
+Event Handling: Event listeners are used for handling user interactions like clicking on tabs, scrolling to load more images, and hovering over images.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Mykolas Sanda.
